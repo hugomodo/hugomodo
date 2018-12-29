@@ -1,0 +1,25 @@
+header nav ul, ul.pagination, ul.breadcrumbs {
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+}
+
+ul.breadcrumbs {
+  li{
+    &:after {
+      content: "\00BB";
+    }
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+
+dt {
+  font-weight: bold;
+  &:after {
+    content: ": ";
+  }
+}

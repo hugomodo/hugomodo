@@ -1,0 +1,28 @@
+<!-- JS -->
+{{ range $.Site.Data.assets }}
+  {{ $.Scratch.Add "scripts" .js }}
+{{ end }}
+
+{{ $scripts := uniq ($.Scratch.Get "scripts") }}
+
+{{ range $scripts }}
+  {{ $path := printf "js/%s" . }}
+  {{ $resource := resources.Get $path }}
+  {{ $.Scratch.Add "resources" (slice $resource) }}
+{{ end }}
+
+{{ $resources := $.Scratch.Get "resources" }}
+
+{{ if $resources }}
+  {{ $jsTarget    := "js/global.js" }}
+
+  {{ $script := $resources | resources.Concat $jsTarget }}
+
+  {{ if .Site.IsServer }}
+    {{ $globalJS := $script }}
+    <script src="{{ $globalJS.Permalink }}"></script>
+  {{ else }}
+    {{ $globalJS := $script | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $globalJS.Permalink }}" integrity="{{ $globalJS.Data.Integrity }}"></script>
+  {{ end }}
+{{ end }}
