@@ -1,13 +1,12 @@
 <header>
-  {{ $url := .Scratch.Get "url" }}
-  {{ if eq $url .URL }}
-    <h1>{{ .Title }}</h1>
-  {{ else }}
+  {{ if .IsPage }}
     <h2>
       <a href="{{ .Permalink }}">
         {{ .Title }}
       </a>
     </h2>
+  {{ else }}
+    <h1>{{ .Title }}</h1>
   {{ end }}
   {{ if .Params.images }}
     {{/* TODO: partial "article/featured-image.html" . */}}
