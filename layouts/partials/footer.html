@@ -1,0 +1,15 @@
+<footer>
+  {{ if .Site.Params.Description }}
+    <section>
+      {{- partial "footer/about.html" . -}}
+    </section>
+  {{ end }}
+
+  <section>
+    {{- partial "footer/nav.html" . -}}
+  </section>
+
+  <section>
+    {{ partial "footer/copyright.html" . }}
+  </section>
+</footer>

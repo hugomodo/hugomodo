@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    {{ $sections := .Site.Sections }}
+    {{ $pages := where .Site.RegularPages "Section" "" }}
+    {{ range (union $sections $pages) }}
+      {{ if not (eq .Name .Site.Title) }}
+        <li>
+          <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Name }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</nav>

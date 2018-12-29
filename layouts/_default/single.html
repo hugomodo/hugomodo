@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <main>
+    <header>
+      {{ partial "shared/breadcrumb-nav.html" . }}
+    </header>
+    <article>
+      {{ partial "article/header.html" . }}
+      {{ partial "article/meta.html" . }}
+      <section>
+        {{ .Content }}
+      </section>
+    </article>
+  </main>
+{{ end }}
