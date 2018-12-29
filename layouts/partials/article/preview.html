@@ -1,0 +1,23 @@
+<article>
+  <header>
+    <h2>
+      <a href="{{ .Permalink }}">
+        {{ .Title }}
+      </a>
+    </h2>
+    {{ if .Params.images }}
+      {{/* TODO: partial "article/featured-image.html" . */}}
+    {{ end }}
+  </header>
+  {{ partial "article/meta.html" . }}
+  <section>
+    {{ with .Description }}
+      {{ . }}
+    {{ else }}
+      {{ .Summary }}
+      {{ if .Truncated }}
+        <a href="{{ .Permalink }}">More &hellip;</a>
+      {{ end }}
+    {{ end }}
+  </section>
+</article>

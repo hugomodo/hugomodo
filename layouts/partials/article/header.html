@@ -1,13 +1,5 @@
 <header>
-  {{ if .IsPage }}
-    <h2>
-      <a href="{{ .Permalink }}">
-        {{ .Title }}
-      </a>
-    </h2>
-  {{ else }}
-    <h1>{{ .Title }}</h1>
-  {{ end }}
+  <h1>{{ .Title }}</h1>
   {{ if .Params.images }}
     {{/* TODO: partial "article/featured-image.html" . */}}
   {{ end }}

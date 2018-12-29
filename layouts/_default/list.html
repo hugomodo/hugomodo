@@ -12,20 +12,7 @@
         {{ $sections := .Sections }}
         {{ $pages := .Pages }}
         {{ range (.Paginate (union $sections $pages).ByDate.Reverse.ByWeight).Pages }}
-          <article>
-            {{ partial "article/header.html" . }}
-            {{ partial "article/meta.html" . }}
-            <section>
-              {{ with .Description }}
-                {{ . }}
-              {{ else }}
-                {{ .Summary }}
-                {{ if .Truncated }}
-                  <a href="{{ .Permalink }}">More &hellip;</a>
-                {{ end }}
-              {{ end }}
-            </section>
-          </article>
+          {{ partial "article/preview.html" . }}
         {{ end }}
       </section>
       <footer>
