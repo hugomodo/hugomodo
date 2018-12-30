@@ -21,8 +21,9 @@
   {{ end -}}
 
   <!-- Social and Search -->
+  {{ partial "head/schema.html" . }}
   {{ partial "head/opengraph.html" . }}
-  {{ template "_internal/twitter_cards.html" . }}
+  {{ partial "head/twitter-cards.html" . }}
   {{ partial "head/structured-data.html" . }}
 
   <!-- Extend and Customise -->
@@ -30,5 +31,5 @@
   {{ partial "head/custom.html" . }}
 
   <!-- Analytics -->
-  {{ template "_internal/google_analytics.html" . }}
+  {{ partial "head/google-analytics.html" . }}
 </head>

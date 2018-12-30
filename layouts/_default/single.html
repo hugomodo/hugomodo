@@ -10,5 +10,8 @@
         {{ .Content }}
       </section>
     </article>
+    <footer>
+      {{ partial "article/comments.html" . }}
+    </footer>
   </main>
 {{ end }}
