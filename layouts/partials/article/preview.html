@@ -5,9 +5,7 @@
         {{ .Title }}
       </a>
     </h3>
-    {{ if .Params.images }}
-      {{/* TODO: partial "article/featured-image.html" . */}}
-    {{ end }}
+    {{ partial "article/images/thumbnail.html" . }}
   </header>
   {{ partial "article/meta.html" . }}
   <section>

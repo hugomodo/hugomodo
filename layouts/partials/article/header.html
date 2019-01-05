@@ -1,6 +1,4 @@
 <header>
   <h2>{{ .Title }}</h2>
-  {{ if .Params.images }}
-    {{/* TODO: partial "article/featured-image.html" . */}}
-  {{ end }}
+  {{ partial "article/images/featured.html" . }}
 </header>
