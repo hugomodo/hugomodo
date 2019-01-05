@@ -1,1 +1,5 @@
-{{ partial "article/images/featured.html" . }}
+{{ if .Params.images }}
+  <a href="{{ .RelPermalink }}">
+    {{ partial "article/images/featured.html" . }}
+  </a>
+{{ end }}
