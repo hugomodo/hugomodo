@@ -1,0 +1,4 @@
+<header>
+  <h2>{{range last 1 (split .Title "/") }}{{ . }}{{ end }}</h2>
+  {{ partial "article/images/featured.html" . }}
+</header>
