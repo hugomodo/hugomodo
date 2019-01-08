@@ -5,8 +5,10 @@
     </header>
     <article>
       {{ partial "article/header.html" . }}
+      {{ partial "article/featured_image.html" . }}
       {{ partial "article/meta.html" . }}
       {{ partial "article/content.html" . }}
+      {{ partial "article/authors.html" . }}
     </article>
     <footer>
       {{ partial "article/comments.html" . }}

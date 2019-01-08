@@ -1,0 +1,7 @@
+{{ with .Params.LongBio }}
+  <section>
+    <p>{{ . }}</p>
+  </section>
+{{ else }}
+  {{ partial "article/content.html" . }}
+{{ end }}

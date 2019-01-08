@@ -1,0 +1,36 @@
+<article class="author">
+  <header>
+    <h4>
+      <a href="{{ .Permalink }}">
+        {{ with .Params.DisplayName }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+      </a>
+    </h4>
+  </header>
+  <section>
+    {{ with .Params.ShortBio }}
+      <p>{{ . }}</p>
+    {{ else }}
+      {{ with .Params.LongBio }}
+        <p>{{ . }}</p>
+      {{ else }}
+        {{ with .Params.Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          <p>
+            {{ .Summary }}
+            {{ if .Truncated }}
+              <a href="{{ .Permalink }}">More &hellip;</a>
+            {{ end }}
+          </p>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </section>
+  {{/* TODO: Argument to be made for partialising images for easy extension. */}}
+  <aside class="image">
+    <a href="{{ .RelPermalink }}">
+      <img src="{{ .Params.Thumbnail | relURL }}"/>
+    </a>
+  </aside>
+  {{ partial "author/meta.html" . }}
+</article>

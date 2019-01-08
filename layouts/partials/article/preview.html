@@ -5,17 +5,21 @@
         {{ .Title }}
       </a>
     </h3>
-    {{ partial "article/images/thumbnail.html" . }}
   </header>
+  <aside>
+    {{ partial "article/images/thumbnail.html" . }}
+  </aside>
   {{ partial "article/meta.html" . }}
   <section>
     {{ with .Description }}
-      {{ . }}
+      <p>{{ . }}</p>
     {{ else }}
-      {{ .Summary }}
-      {{ if .Truncated }}
-        <a href="{{ .Permalink }}">More &hellip;</a>
-      {{ end }}
+      <p>
+        {{ .Summary }}
+        {{ if .Truncated }}
+          <a href="{{ .Permalink }}">More &hellip;</a>
+        {{ end }}
+      </p>
     {{ end }}
   </section>
 </article>

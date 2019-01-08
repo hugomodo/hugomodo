@@ -1,0 +1,5 @@
+{{ if or .Params.Image .Params.Thumbnail }}
+  <aside>
+    <img src="{{ with .Params.Image }}{{ . | relURL }}{{ else }}{{ .Params.Thumbnail | relURL }}{{ end }}"/>
+  </aside>
+{{ end }}
