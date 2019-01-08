@@ -27,10 +27,12 @@
     {{ end }}
   </section>
   {{/* TODO: Argument to be made for partialising images for easy extension. */}}
-  <aside class="image">
-    <a href="{{ .RelPermalink }}">
-      <img src="{{ .Params.Thumbnail | relURL }}"/>
-    </a>
-  </aside>
-  {{ partial "author/meta.html" . }}
+  {{ if or .Params.Thumbnail .Params.Image }}
+    <aside class="image">
+      <a href="{{ .RelPermalink }}">
+        <img src="{{ with .Params.Thumbnail }}{{ . | relURL }}{{ else }}{{ .Params.Image | relURL }}{{ end }}"/>
+      </a>
+    </aside>
+  {{ end }}
+  {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
 </article>

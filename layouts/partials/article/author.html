@@ -1,0 +1,32 @@
+{{ with .Site.Author }}
+  <footer>
+    <section class="authors">
+      <header>
+        <h3>Author</h3>
+      </header>
+      <article class="author">
+        <header>
+          <h4>
+            {{ with .displayname }}{{ . }}{{ end }}
+          </h4>
+        </header>
+        <section>
+          {{ with .shortbio }}
+            <p>{{ . }}</p>
+          {{ else }}
+            {{ with .longbio }}
+              <p>{{ . }}</p>
+            {{ end }}
+          {{ end }}
+        </section>
+        {{/* TODO: Argument to be made for partialising images for easy extension. */}}
+        {{ if or .thumbnail .image }}
+          <aside class="image">
+            <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}"/>
+          </aside>
+        {{ end }}
+        {{ partial "author/meta.html" (dict "email" .email "social" .social) }}
+      </article>
+    </section>
+  </footer>
+{{ end }}

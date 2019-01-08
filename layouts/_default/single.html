@@ -8,7 +8,13 @@
       {{ partial "article/featured_image.html" . }}
       {{ partial "article/meta.html" . }}
       {{ partial "article/content.html" . }}
-      {{ partial "article/authors.html" . }}
+      {{ if .Param "authors" }}
+        {{ partial "article/authors.html" . }}
+      {{ else }}
+        {{ if .Site.Author }}
+          {{ partial "article/author.html" . }}
+        {{ end }}
+      {{ end }}
     </article>
     <footer>
       {{ partial "article/comments.html" . }}
