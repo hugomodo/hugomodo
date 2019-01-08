@@ -5,6 +5,12 @@
         <h3>Author</h3>
       </header>
       <article class="author">
+        {{/* TODO: Argument to be made for partialising images for easy extension. */}}
+        {{ if or .thumbnail .image }}
+          <figure>
+            <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}"/>
+          </figure>
+        {{ end }}
         <header>
           <h4>
             {{ with .displayname }}{{ . }}{{ end }}
@@ -19,12 +25,6 @@
             {{ end }}
           {{ end }}
         </section>
-        {{/* TODO: Argument to be made for partialising images for easy extension. */}}
-        {{ if or .thumbnail .image }}
-          <aside class="image">
-            <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}"/>
-          </aside>
-        {{ end }}
         {{ partial "author/meta.html" (dict "email" .email "social" .social) }}
       </article>
     </section>

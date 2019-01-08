@@ -16,8 +16,8 @@
 
     {{ with $term }}
       <article>
-        {{ partial "article/header.html" . }}
         {{ partial "article/featured_image.html" . }}
+        {{ partial "article/header.html" . }}
         <section>
           {{ .Content }}
         </section>

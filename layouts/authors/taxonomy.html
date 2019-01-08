@@ -4,8 +4,8 @@
       {{ partial "shared/breadcrumb-nav.html" . }}
     </header>
     <article>
-      {{ partial "author/header.html" . }}
       {{ partial "author/featured_image.html" . }}
+      {{ partial "author/header.html" . }}
       {{ partial "author/content.html" . }}
       {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
       <section>

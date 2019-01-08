@@ -1,4 +1,7 @@
 <article>
+  <figure>
+    {{ partial "article/images/thumbnail.html" . }}
+  </figure>
   <header>
     <h3>
       <a href="{{ .Permalink }}">
@@ -6,9 +9,6 @@
       </a>
     </h3>
   </header>
-  <aside>
-    {{ partial "article/images/thumbnail.html" . }}
-  </aside>
   {{ partial "article/meta.html" . }}
   <section>
     {{ with .Description }}

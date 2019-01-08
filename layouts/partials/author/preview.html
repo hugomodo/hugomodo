@@ -1,4 +1,12 @@
 <article class="author">
+  {{/* TODO: Argument to be made for partialising images for easy extension. */}}
+  {{ if or .Params.Thumbnail .Params.Image }}
+    <figure>
+      <a href="{{ .RelPermalink }}">
+        <img src="{{ with .Params.Thumbnail }}{{ . | relURL }}{{ else }}{{ .Params.Image | relURL }}{{ end }}"/>
+      </a>
+    </figure>
+  {{ end }}
   <header>
     <h4>
       <a href="{{ .Permalink }}">
@@ -26,13 +34,5 @@
       {{ end }}
     {{ end }}
   </section>
-  {{/* TODO: Argument to be made for partialising images for easy extension. */}}
-  {{ if or .Params.Thumbnail .Params.Image }}
-    <aside class="image">
-      <a href="{{ .RelPermalink }}">
-        <img src="{{ with .Params.Thumbnail }}{{ . | relURL }}{{ else }}{{ .Params.Image | relURL }}{{ end }}"/>
-      </a>
-    </aside>
-  {{ end }}
   {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
 </article>
