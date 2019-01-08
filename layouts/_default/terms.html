@@ -10,10 +10,21 @@
         {{ .Content }}
       </section>
       <section>
-        {{ $sections := .Sections }}
         {{ $pages := .Pages }}
-        {{ range (.Paginate (union $sections $pages).ByDate.Reverse.ByWeight).Pages }}
-          {{ partial "article/preview.html" . }}
+        {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
+          {{ $path :=  .Data.Term | printf "%s/%s/_index.html" .Data.Plural }}
+          {{ $termpage := $.Site.GetPage $path }}
+
+          {{ with $termpage }}
+            {{ $.Scratch.Set "term" $termpage }}
+          {{ else }}
+            {{ $.Scratch.Set "term" . }}
+          {{ end }}
+          {{ $term := $.Scratch.Get "term" }}
+
+          {{ with $term }}
+            {{ partial "article/preview.html" . }}
+          {{ end }}
         {{ end }}
       </section>
       <footer>
