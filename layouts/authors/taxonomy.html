@@ -7,7 +7,7 @@
       {{ partial "author/header.html" . }}
       {{ partial "author/featured_image.html" . }}
       {{ partial "author/content.html" . }}
-      {{ partial "author/meta.html" . }}
+      {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
       <section>
         {{ $sections := .Sections }}
         {{ $pages := .Pages }}
