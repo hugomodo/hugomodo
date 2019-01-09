@@ -8,6 +8,8 @@
 
   {{ partial "head/title.html" . }}
 
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ end }}" />
+
   <!-- CSS -->
   {{ partial "resources/scss.html" . }}
   {{ partial "head/css.html" . }}
