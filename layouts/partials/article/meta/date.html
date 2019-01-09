@@ -1,4 +1,2 @@
-<section>
-  <dt>Published</dt>
-  <dd><time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time></dd>
-</section>
+<dt>Published</dt>
+<dd><time datetime="{{ .Date }}" pubdate>{{ .Date.Format "02 Jan 2006" }}</time></dd>
