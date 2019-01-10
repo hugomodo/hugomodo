@@ -1,2 +1,16 @@
-<h2>About {{ .Site.Title }}</h2>
-<p>{{ .Site.Params.Description }}</p>
+<header>
+  <h2>About {{ .Site.Title }}</h2>
+</header>
+{{ with .Site.Params.Description }}
+  <section>
+    <p>{{ . }}</p>
+  </section>
+{{ end }}
+{{ with .Site.Social }}
+  <address>
+    <dl>
+      {{/* TODO: Move social meta to shared. */}}
+      {{ partial "author/meta.html" (dict "social" .) }}
+    </dl>
+  </address>
+{{ end }}

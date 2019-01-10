@@ -1,5 +1,5 @@
 <footer>
-  {{ if .Site.Params.Description }}
+  {{ if or .Site.Params.Description .Site.Social }}
     <section>
       {{- partial "footer/about.html" . -}}
     </section>
