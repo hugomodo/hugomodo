@@ -4,10 +4,7 @@
       {{ partial "shared/breadcrumb-nav.html" . }}
     </header>
     <article class="author">
-      {{ partial "author/featured_image.html" . }}
-      {{ partial "author/header.html" . }}
-      {{ partial "author/content.html" . }}
-      {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
+      {{ partial "author.html" (dict "author" .Params "pages" .Pages "headerDepth" 2) }}
       <section>
         {{ $pages := .Pages }}
         {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
