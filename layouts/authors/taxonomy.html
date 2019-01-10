@@ -9,9 +9,8 @@
       {{ partial "author/content.html" . }}
       {{ partial "author/meta.html" (dict "email" .Params.email "social" .Params.social) }}
       <section>
-        {{ $sections := .Sections }}
         {{ $pages := .Pages }}
-        {{ range (.Paginate (union $sections $pages).ByDate.Reverse.ByWeight).Pages }}
+        {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
           {{ partial "article/preview.html" . }}
         {{ end }}
       </section>
