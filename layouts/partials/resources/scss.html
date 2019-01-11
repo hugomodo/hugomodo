@@ -7,25 +7,25 @@
 
 {{ $styles := uniq ($.Scratch.Get "styles") }}
 
+{{ $cssOpts      := cond ($inServerMode) (dict "enableSourceMap" true) (dict "outputStyle" "compressed") }}
+
 {{ range $styles }}
   {{ $path := printf "scss/%s" . }}
-  {{ $resource := resources.Get $path | resources.ExecuteAsTemplate "style.scss" $ }}
+  {{ $resource := resources.Get $path | resources.ExecuteAsTemplate "style.scss" $ | toCSS $cssOpts }}
+
   {{ $.Scratch.Add "styleresources" (slice $resource) }}
 {{ end }}
 
 {{ $resources := $.Scratch.Get "styleresources" }}
 
 {{ if $resources }}
-  {{ $concatenated := $resources | resources.Concat "concatenated.scss" }}
-
-  {{ $cssTarget    := "css/style.css" }}
-  {{ $cssOpts      := cond ($inServerMode) (dict "targetPath" $cssTarget "enableSourceMap" true) (dict "targetPath" $cssTarget "outputStyle" "compressed") }}
+  {{ $concatenated := $resources | resources.Concat "css/style.css" }}
 
   {{ if $inServerMode }}
-    {{ $css := $concatenated | toCSS $cssOpts }}
+    {{ $css := $concatenated }}
     <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}">
   {{ else }}
-    {{ $css := $concatenated | toCSS $cssOpts | minify | fingerprint }}
+    {{ $css := $concatenated | minify | fingerprint }}
     <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ end }}
 {{ end }}
