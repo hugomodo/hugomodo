@@ -4,7 +4,7 @@ The base theme for HugoModo's modular approach to Hugo website design. It provid
 
 It provides minimal styling, so is best used as the base for a child theme. HugoModo themes which depend on it will include this theme automatically.
 
-### Installation
+## Installation
 
 ```bash
 git submodule add https://github.com/hugomodo/hugomodo themes/hugomodo
