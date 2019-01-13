@@ -7,10 +7,6 @@
   </section>
 {{ end }}
 {{ with .Site.Social }}
-  <address>
-    <dl>
-      {{/* TODO: Move social meta to shared. */}}
-      {{ partial "author/meta.html" (dict "social" .) }}
-    </dl>
-  </address>
+  {{/* TODO: Move social meta to shared. */}}
+  {{ partial "author/meta.html" (dict "social" .) }}
 {{ end }}
