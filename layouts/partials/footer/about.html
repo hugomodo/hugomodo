@@ -1,11 +1,9 @@
-<header>
-  <h2>About {{ .Site.Title }}</h2>
-</header>
+<h2>About {{ .Site.Title }}</h2>
+
 {{ with .Site.Params.Description }}
-  <section>
-    <p>{{ . }}</p>
-  </section>
+  <p>{{ . }}</p>
 {{ end }}
+
 {{ with .Site.Social }}
   {{/* TODO: Move social meta to shared. */}}
   {{ partial "author/meta.html" (dict "social" .) }}
