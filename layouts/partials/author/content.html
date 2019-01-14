@@ -1,9 +1,9 @@
 {{/* TODO: Deprecated or removed? */}}
 
 {{ with .Params.LongBio }}
-  <section class="bio">
+  <div class="bio">
     <p>{{ . }}</p>
-  </section>
+  </div>
 {{ else }}
   {{ partial "article/content.html" . }}
 {{ end }}

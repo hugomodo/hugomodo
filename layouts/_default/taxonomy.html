@@ -18,9 +18,15 @@
       <article>
         {{ partial "article/featured_image.html" . }}
         {{ partial "article/header.html" . }}
-        <section>
+        {{/*
+          NOTE: Replaced section nesting for article content with div nesting to improve
+                semantics/accessibility. div has no semantic meaning, but provides us
+                styling capabilities that may otherwise be absent.
+                Do consider: Is it necessary? Is it useful?
+        */}}
+        <div>
           {{ .Content }}
-        </section>
+        </div>
         <section>
           {{ range $.Paginator.Pages }}
             {{ partial "article/preview.html" . }}

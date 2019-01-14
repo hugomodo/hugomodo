@@ -17,7 +17,7 @@
       {{ if $link }}</a>{{ end }}
     </h{{ with $headerDepth }}{{ . }}{{ else }}2{{ end }}>
   </header>
-  <section class="bio">
+  <div class="bio">
     {{ with .shortbio }}
       <p>{{ . }}</p>
     {{ else }}
@@ -36,6 +36,6 @@
         {{ end }}
       {{ end }}
     {{ end }}
-  </section>
+  </div>
   {{ partial "author/meta.html" (dict "email" .email "social" .social) }}
 {{ end }}
