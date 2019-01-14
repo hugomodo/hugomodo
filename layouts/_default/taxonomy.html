@@ -27,11 +27,11 @@
         <div>
           {{ .Content }}
         </div>
-        <section>
-          {{ range $.Paginator.Pages }}
-            {{ partial "article/preview.html" . }}
-          {{ end }}
-        </section>
+
+        {{ range $.Paginator.Pages }}
+          {{ partial "article/preview.html" . }}
+        {{ end }}
+
         <footer>
           {{ partial "shared/pagination.html" . }}
         </footer>

@@ -15,13 +15,13 @@
       <div>
         {{ .Content }}
       </div>
-      <section>
-        {{ $sections := .Sections }}
-        {{ $pages := .Pages }}
-        {{ range (.Paginate (union $sections $pages).ByDate.Reverse.ByWeight).Pages }}
-          {{ partial "article/preview.html" . }}
-        {{ end }}
-      </section>
+
+      {{ $sections := .Sections }}
+      {{ $pages := .Pages }}
+      {{ range (.Paginate (union $sections $pages).ByDate.Reverse.ByWeight).Pages }}
+        {{ partial "article/preview.html" . }}
+      {{ end }}
+
       <footer>
         {{ partial "shared/pagination.html" . }}
       </footer>

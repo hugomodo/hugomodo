@@ -5,12 +5,12 @@
     </header>
     <article class="author">
       {{ partial "author.html" (dict "author" .Params "pages" .Pages "headerDepth" 2) }}
-      <section>
-        {{ $pages := .Pages }}
-        {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
-          {{ partial "article/preview.html" . }}
-        {{ end }}
-      </section>
+
+      {{ $pages := .Pages }}
+      {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
+        {{ partial "article/preview.html" . }}
+      {{ end }}
+
       <footer>
         {{ partial "shared/pagination.html" . }}
       </footer>

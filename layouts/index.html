@@ -7,12 +7,12 @@
       <div>
         {{ .Content }}
       </div>
-      <section>
-        {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-        {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
-          {{ partial "article/preview.html" . }}
-        {{ end }}
-      </section>
+
+      {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+      {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
+        {{ partial "article/preview.html" . }}
+      {{ end }}
+
       <footer>
         {{ partial "shared/pagination.html" . }}
       </footer>

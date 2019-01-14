@@ -15,24 +15,24 @@
       <div>
         {{ .Content }}
       </div>
-      <section class="authors">
-        {{ $pages := .Pages }}
-        {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
-          {{ $path :=  .Data.Term | printf "%s/%s/_index.html" .Data.Plural }}
-          {{ $termpage := $.Site.GetPage $path }}
 
-          {{ with $termpage }}
-            {{ $.Scratch.Set "term" $termpage }}
-          {{ else }}
-            {{ $.Scratch.Set "term" . }}
-          {{ end }}
-          {{ $term := $.Scratch.Get "term" }}
+      {{ $pages := .Pages }}
+      {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
+        {{ $path :=  .Data.Term | printf "%s/%s/_index.html" .Data.Plural }}
+        {{ $termpage := $.Site.GetPage $path }}
 
-          {{ with $term }}
-            {{ partial "author/preview.html" . }}
-          {{ end }}
+        {{ with $termpage }}
+          {{ $.Scratch.Set "term" $termpage }}
+        {{ else }}
+          {{ $.Scratch.Set "term" . }}
         {{ end }}
-      </section>
+        {{ $term := $.Scratch.Get "term" }}
+
+        {{ with $term }}
+          {{ partial "author/preview.html" . }}
+        {{ end }}
+      {{ end }}
+
       <footer>
         {{ partial "shared/pagination.html" . }}
       </footer>
