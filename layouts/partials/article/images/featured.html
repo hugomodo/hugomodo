@@ -1,6 +1,8 @@
+{{ $alt := printf "%s featured image" .Title }}
+
 {{ with .Params.images }}
   {{ range first 1 . }}
-    <img src="{{ . }}"/>
+    <img src="{{ . }}" alt="{{ $alt }}"/>
   {{ end }}
 {{ end }}
 

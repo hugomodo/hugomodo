@@ -6,7 +6,7 @@
   {{ if or .thumbnail .image }}
     <figure>
       {{ with $link }}<a href="{{ . }}">{{ end }}
-        <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}"/>
+        <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}" alt="{{ with .displayname }}{{ . }}{{ else }}{{ .title }}{{ end }} author image"/>
       {{ if $link }}</a>{{ end }}
     </figure>
   {{ end }}
