@@ -4,9 +4,9 @@
       <header>
         <h2>{{ .Title }}</h2>
       </header>
-      <section>
+      <div>
         {{ .Content }}
-      </section>
+      </div>
       <section>
         {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
         {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
