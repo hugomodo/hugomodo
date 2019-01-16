@@ -1,1 +1,3 @@
-{{ template "_internal/disqus.html" . }}
+{{ if not .Site.IsServer }}
+  {{ template "_internal/disqus.html" . }}
+{{ end }}
