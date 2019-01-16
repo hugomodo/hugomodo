@@ -2,7 +2,9 @@
 {{ $inServerMode := .Site.IsServer }}
 
 {{ range $.Site.Data.assets }}
-  {{ $.Scratch.Add "styles" .scss }}
+  {{ with .scss }}
+    {{ $.Scratch.Add "styles" . }}
+  {{ end }}
 {{ end }}
 
 {{ $styles := uniq ($.Scratch.Get "styles") }}
