@@ -28,6 +28,6 @@
     <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}">
   {{ else }}
     {{ $css := $concatenated | minify | fingerprint }}
-    <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    <link rel="stylesheet" type="text/css" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
 {{ end }}

@@ -25,6 +25,6 @@
     <script src="{{ $globalJS.Permalink }}"></script>
   {{ else }}
     {{ $globalJS := $script | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $globalJS.Permalink }}" integrity="{{ $globalJS.Data.Integrity }}"></script>
+    <script src="{{ $globalJS.Permalink }}" integrity="{{ $globalJS.Data.Integrity }}" crossorigin="anonymous"></script>
   {{ end }}
 {{ end }}
