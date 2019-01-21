@@ -9,7 +9,7 @@
     */}}
     <section class="authors">
       <header>
-        <h3>Author{{ if gt (len $list) 1 }}s{{ end }}</h3>
+        <h2>Author{{ if gt (len $list) 1 }}s{{ end }}</h2>
       </header>
       {{ range . }}
         {{ $name := . }}
