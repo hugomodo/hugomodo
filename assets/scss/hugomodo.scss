@@ -5,3 +5,14 @@ body > header > strong {
   font-size: 2em;
   margin: 0.67em 0;
 }
+
+nav#TableOfContents {
+  ul {
+    padding: 0;
+    list-style-type: none;
+    // font-size:0.95em;
+    a + ul {
+      padding-left:1em;
+    }
+  }
+}
