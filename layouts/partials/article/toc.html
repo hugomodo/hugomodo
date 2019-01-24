@@ -5,9 +5,9 @@
   That condition is this...
 
   EITHER
-    .Params.toc is true
+    .Params.include_toc is true
   OR
-    .Site.Params.toc is true AND .Params.toc is not set
+    .Site.Params.include_toc is true AND .Params.include_toc is not set
 
   In English:
 
@@ -15,7 +15,7 @@
   Else if toc is true for site and isn't actually set (would be false) for page, render.
 */}}
 
-{{ if and .TableOfContents (or .Params.toc (and .Site.Params.toc (not (isset .Params "toc")))) }}
+{{ if and .TableOfContents (or .Params.include_toc (and .Site.Params.include_toc (not (isset .Params "include_toc")))) }}
   <aside>
     <header>
       <h2>Table of Contents</h2>
