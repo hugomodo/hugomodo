@@ -8,6 +8,8 @@
         {{ .Content }}
       </div>
 
+      {{ partial "index/extensions.html" . }}
+
       {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
       {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
         {{ partial "article/preview.html" . }}
