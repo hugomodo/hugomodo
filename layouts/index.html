@@ -1,10 +1,10 @@
 {{ define "main" }}
-  <main>
-    <article>
-      <header>
+  <main id="hugoModule-main">
+    <article id="hugoModule-mainArticle">
+      <header id="hugoModule-mainArticleHeader">
         <h1>{{ .Title }}</h1>
       </header>
-      <div>
+      <div id="hugoModule-mainArticleContent">
         {{ .Content }}
       </div>
 
@@ -15,7 +15,7 @@
         {{ partial "article/preview.html" . }}
       {{ end }}
 
-      <footer>
+      <footer id="hugoModule-mainArticleFooter">
         {{ partial "shared/pagination.html" . }}
       </footer>
     </article>
