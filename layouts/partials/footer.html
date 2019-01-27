@@ -1,17 +1,19 @@
 <footer>
-  {{ if or .Site.Params.Description .Site.Social }}
+  <div id="footerWrapper">
+    {{ if or .Site.Params.Description .Site.Social }}
+      <section>
+        {{- partial "footer/about.html" . -}}
+      </section>
+    {{ end }}
+
     <section>
-      {{- partial "footer/about.html" . -}}
+      {{- partial "footer/nav.html" . -}}
     </section>
-  {{ end }}
 
-  <section>
-    {{- partial "footer/nav.html" . -}}
-  </section>
+    {{ partial "footer/extensions.html" . }}
 
-  {{ partial "footer/extensions.html" . }}
-
-  <aside>
-    {{ partial "footer/copyright.html" . }}
-  </aside>
+    <aside id="copyrightNotice">
+      {{ partial "footer/copyright.html" . }}
+    </aside>
+  </div>
 </footer>
