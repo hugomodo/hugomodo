@@ -3,7 +3,7 @@
 {{/* SEE ALSO: header/nav.html */}}
 {{ if .Site.Menus.footer }}
   {{/* Section Menu for Lazy Bloggers */}}
-  <nav>
+  <nav id="hugoModule-siteFooterNav">
     <ul>
       {{ $currentPage := . }}
       {{ range .Site.Menus.footer }}
@@ -14,7 +14,7 @@
     </ul>
   </nav>
 {{ else }}
-  <nav>
+  <nav id="hugoModule-siteFooterNav">
     <ul>
       <li>
         <a href="/">Home</a>

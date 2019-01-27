@@ -1,9 +1,9 @@
 {{ define "main" }}
-  <main>
-    <header>
+  <main id="hugoModule-main">
+    <header id="hugoModule-mainHeader">
       {{ partial "shared/breadcrumb-nav.html" . }}
     </header>
-    <article class="author">
+    <article id="hugoModule-mainArticle" class="author">
       {{ partial "author.html" (dict "author" .Params "pages" .Pages "headerDepth" 2) }}
 
       {{ $pages := .Pages }}
@@ -11,7 +11,7 @@
         {{ partial "article/preview.html" . }}
       {{ end }}
 
-      <footer>
+      <footer id="hugoModule-mainArticleFooter">
         {{ partial "shared/pagination.html" . }}
       </footer>
     </article>

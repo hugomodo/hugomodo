@@ -6,7 +6,7 @@
 */}}
 {{ if .Site.Menus.main }}
   {{/* Section Menu for Lazy Bloggers */}}
-  <nav>
+  <nav id="hugoModule-siteNav">
     <ul>
       {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
@@ -18,7 +18,7 @@
   </nav>
 {{ else }}
   {{/* Default HugoModo menu */}}
-  <nav>
+  <nav id="hugoModule-siteNav">
     <ul>
       {{ $sections := .Site.Sections }}
       {{ $pages := where .Site.RegularPages "Section" "" }}

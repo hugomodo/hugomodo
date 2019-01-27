@@ -1,9 +1,9 @@
 {{ define "main" }}
-  <main>
-    <header>
+  <main id="hugoModule-main">
+    <header id="hugoModule-mainHeader">
       {{ partial "shared/breadcrumb-nav.html" . }}
     </header>
-    <article>
+    <article id="hugoModule-mainArticle">
       {{ partial "article/featured_image.html" . }}
       {{ partial "article/header.html" . }}
       {{ partial "article/meta.html" . }}
@@ -17,7 +17,7 @@
         {{ end }}
       {{ end }}
     </article>
-    <footer>
+    <footer id="hugoModule-mainFooter">
       {{ partial "article/comments.html" . }}
     </footer>
   </main>
