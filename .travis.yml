@@ -18,7 +18,7 @@ jobs:
         - ../bin/hugo --themesDir ../../ --theme hugomodo
     - stage: deploy
       script:
-        - git remote set-url origin https://${GITHUB_TOKEN}@gitlab.com/${TRAVIS_REPO_SLUG}.git
+        - git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
         - git config --global user.email "travis@travis-ci.org"
         - git config --global user.name "Travis CI"
         - release_branch=$(echo ${TRAVIS_TAG} | cut -b 2-)
