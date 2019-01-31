@@ -5,16 +5,17 @@ os: osx
 before_install:
   - chmod +x bin/hugo
 
-script:
-  - cd exampleSite
-  - ../bin/hugo --themesDir ../../ --theme hugomodo
-
 stages:
+  - name: test
   - name: deploy
     if: tag IS present
 
 jobs:
   include:
+    - stage: test
+      script:
+        - cd exampleSite
+        - ../bin/hugo --themesDir ../../ --theme hugomodo
     - stage: deploy
       script:
         - git remote set-url origin https://${GITHUB_TOKEN}@gitlab.com/${TRAVIS_REPO_SLUG}.git
