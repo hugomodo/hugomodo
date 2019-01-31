@@ -8,3 +8,15 @@ before_install:
 script:
   - cd exampleSite
   - ../bin/hugo --themesDir ../../ --theme hugomodo
+
+before_deploy:
+  - cd ..
+  - tar -zcf ${REPO}-${TRAVIS_TAG}.tar.gz ${REPO}
+
+deploy:
+  - provider: releases
+    api_key: "$GITHUB_TOKEN"
+    file: ${REPO}-${TRAVIS_TAG}.tar.gz
+    skip_cleanup: true
+    on:
+      tags: true
