@@ -1,5 +1,7 @@
 language: minimal
 
+os: osx
+
 before_install:
   - chmod +x bin/hugo
 
