@@ -1,0 +1,5 @@
+language: minimal
+
+script:
+- cd exampleSite
+- ../bin/hugo --themesDir ../../ --theme hugomodo
