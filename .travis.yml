@@ -1,5 +1,8 @@
 language: minimal
 
+before_install:
+  - chmod +x bin/hugo
+
 script:
-- cd exampleSite
-- ../bin/hugo --themesDir ../../ --theme hugomodo
+  - cd exampleSite
+  - ../bin/hugo --themesDir ../../ --theme hugomodo
