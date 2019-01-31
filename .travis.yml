@@ -21,5 +21,5 @@ jobs:
         - git remote set-url origin https://${GITHUB_TOKEN}@gitlab.com/${TRAVIS_REPO_SLUG}.git
         - git config --global user.email "travis@travis-ci.org"
         - git config --global user.name "Travis CI"
-        - git co -b ${TRAVIS_TAG}
+        - git checkout -b ${TRAVIS_TAG}
         - git push -u origin ${TRAVIS_TAG}
