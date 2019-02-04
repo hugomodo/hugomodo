@@ -1,9 +1,9 @@
-language: minimal
+dist: xenial
 
-os: osx
-
-before_install:
-  - chmod +x bin/hugo
+addons:
+  snaps:
+  - name: hugo
+    channel: extended
 
 stages:
   - name: test
@@ -15,7 +15,8 @@ jobs:
     - stage: test
       script:
         - cd exampleSite
-        - ../bin/hugo --themesDir ../../ --theme hugomodo
+        - theme_name=$(echo "${TRAVIS_REPO_SLUG/[a-zA-Z-_]*?\//}")
+        - hugo --themesDir ../../ --theme $theme_name
     - stage: deploy
       script:
         - git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
