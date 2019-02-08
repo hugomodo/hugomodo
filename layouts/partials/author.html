@@ -1,41 +1,43 @@
-{{ $link := .link }}
-{{ $headerDepth := .headerDepth }}
+<div class="hugoComponent-authorWrapper">
+  {{ $link := .link }}
+  {{ $headerDepth := .headerDepth }}
 
-{{ with .author }}
-  {{/* TODO: Argument to be made for partialising images for easy extension. */}}
-  {{ if or .thumbnail .image }}
-    <figure>
-      {{ with $link }}<a href="{{ . }}">{{ end }}
-        <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}" alt="{{ with .displayname }}{{ . }}{{ else }}{{ .title }}{{ end }} author image"/>
-      {{ if $link }}</a>{{ end }}
-    </figure>
-  {{ end }}
-  <header>
-    <h{{ with $headerDepth }}{{ . }}{{ else }}2{{ end }}>
-      {{ with $link }}<a href="{{ . }}">{{ end }}
-        {{ with .displayname }}{{ . }}{{ else }}{{ .title }}{{ end }}
-      {{ if $link }}</a>{{ end }}
-    </h{{ with $headerDepth }}{{ . }}{{ else }}2{{ end }}>
-  </header>
-  <div class="bio">
-    {{ with .shortbio }}
-      <p>{{ . }}</p>
-    {{ else }}
-      {{ with .longbio }}
+  {{ with .author }}
+    {{/* TODO: Argument to be made for partialising images for easy extension. */}}
+    {{ if or .thumbnail .image }}
+      <figure>
+        {{ with $link }}<a href="{{ . }}">{{ end }}
+          <img src="{{ with .thumbnail }}{{ . | relURL }}{{ else }}{{ .image | relURL }}{{ end }}" alt="{{ with .displayname }}{{ . }}{{ else }}{{ .title }}{{ end }} author image"/>
+        {{ if $link }}</a>{{ end }}
+      </figure>
+    {{ end }}
+    <header>
+      <h{{ with $headerDepth }}{{ . }}{{ else }}2{{ end }}>
+        {{ with $link }}<a href="{{ . }}">{{ end }}
+          {{ with .displayname }}{{ . }}{{ else }}{{ .title }}{{ end }}
+        {{ if $link }}</a>{{ end }}
+      </h{{ with $headerDepth }}{{ . }}{{ else }}2{{ end }}>
+    </header>
+    <div class="bio">
+      {{ with .shortbio }}
         <p>{{ . }}</p>
       {{ else }}
-        {{ with .description }}
+        {{ with .longbio }}
           <p>{{ . }}</p>
         {{ else }}
-          <p>
-            {{ .Summary }}
-            {{ if .Truncated }}
-              <a href="{{ .Permalink }}">More &hellip;</a>
-            {{ end }}
-          </p>
+          {{ with .description }}
+            <p>{{ . }}</p>
+          {{ else }}
+            <p>
+              {{ .Summary }}
+              {{ if .Truncated }}
+                <a href="{{ .Permalink }}">More &hellip;</a>
+              {{ end }}
+            </p>
+          {{ end }}
         {{ end }}
       {{ end }}
-    {{ end }}
-  </div>
-  {{ partial "author/meta.html" (dict "email" .email "social" .social) }}
-{{ end }}
+    </div>
+    {{ partial "author/meta.html" (dict "email" .email "social" .social) }}
+  {{ end }}
+</div>
