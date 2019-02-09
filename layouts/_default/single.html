@@ -9,6 +9,11 @@
       {{ partial "article/meta.html" . }}
       {{ partial "article/toc.html" . }}
       {{ partial "article/content.html" . }}
+      {{ with .Param "blocks" }}
+        {{ range . }}
+          {{ partial "blocks/content.html" . }}
+        {{ end }}
+      {{ end }}
       {{ if .Param "authors" }}
         {{ partial "article/authors.html" . }}
       {{ else }}
