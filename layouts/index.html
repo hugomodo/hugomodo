@@ -1,9 +1,8 @@
 {{ define "main" }}
   <main id="hugoModule-main">
     <article id="hugoModule-mainArticle">
-      <header id="hugoModule-mainArticleHeader">
-        <h1>{{ .Title }}</h1>
-      </header>
+      {{ partial "article/featured_image.html" . }}
+      {{ partial "article/header.html" . }}
       <div id="hugoModule-mainArticleContent">
         {{ .Content }}
       </div>
