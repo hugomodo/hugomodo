@@ -5,8 +5,12 @@
 
   {{ partial "article/header.html" . }} <!--header-->
 
+  {{/*
+    TODO: Content Shim doesn't work, seemingly because taxonomy pages cannot utilise
+    RawContent. See hugomodo-shortcode-partials or hugomodo-image-processing for a more
+    complete note.
+  */}}
   <div>{{ .Content }}</div> <!--div-->
-  {{/* ContentShim doesn't work. TODO: Investigate */}}
 
   {{ $pages := .Pages }}
   {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
