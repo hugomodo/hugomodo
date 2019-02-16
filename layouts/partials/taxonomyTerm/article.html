@@ -1,0 +1,28 @@
+{{ $path :=  .Data.Term | printf "%s/%s/_index.html" .Data.Plural }}
+{{ $termpage := $.Site.GetPage $path }}
+
+{{ with $termpage }}
+  {{ $.Scratch.Set "term" $termpage }}
+{{ else }}
+  {{ $.Scratch.Set "term" . }}
+{{ end }}
+{{ $term := $.Scratch.Get "term" }}
+
+{{ with $term }}
+  <article id="hugoModule-mainArticle">
+    {{ partial "shared/breadcrumb.html" . }} <!--aside-->
+
+    {{ partial "article/featured_image.html" . }} <!--figure-->
+
+    {{ partial "article/header.html" . }} <!--header-->
+
+    <div>{{ .Content }}</div> <!--div-->
+    {{/* ContentShim doesn't work. TODO: Investigate */}}
+
+    {{ range $.Paginator.Pages }}
+      {{ partial "article/preview.html" . }}
+    {{ end }}
+
+    {{ partial "section/pagination.html" . }} <!--aside-->
+  </article>
+{{ end }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main id="hugoModule-main">
     <header id="hugoModule-mainHeader">
-      {{ partial "shared/breadcrumb-nav.html" . }}
+      {{ partial "shared/breadcrumb.html" . }}
     </header>
     <article id="hugoModule-mainArticle">
       {{ partial "article/featured_image.html" . }}
@@ -34,7 +34,7 @@
       {{ end }}
 
       <footer id="hugoModule-mainArticleFooter">
-        {{ partial "shared/pagination.html" . }}
+        {{ partial "section/pagination.html" . }}
       </footer>
     </article>
   </main>

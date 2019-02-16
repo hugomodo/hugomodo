@@ -16,10 +16,10 @@
 */}}
 
 {{ if and .TableOfContents (or .Params.include_toc (and .Site.Params.include_toc (not (isset .Params "include_toc")))) }}
-  <aside>
+  <nav>
     <header>
       <h2>Table of Contents</h2>
     </header>
     {{ .TableOfContents }}
-  </aside>
+  </nav>
 {{ end }}
