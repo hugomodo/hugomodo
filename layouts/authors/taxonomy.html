@@ -1,19 +1,16 @@
 {{ define "main" }}
   <main id="hugoModule-main">
-    <header id="hugoModule-mainHeader">
-      {{ partial "shared/breadcrumb.html" . }}
-    </header>
     <article id="hugoModule-mainArticle" class="author">
       {{ partial "author.html" (dict "author" .Params "pages" .Pages "headerDepth" 2) }}
+
+      {{ partial "shared/breadcrumb.html" . }}
 
       {{ $pages := .Pages }}
       {{ range (.Paginate $pages.ByDate.Reverse.ByWeight).Pages }}
         {{ partial "article/preview.html" . }}
       {{ end }}
 
-      <footer id="hugoModule-mainArticleFooter">
-        {{ partial "section/pagination.html" . }}
-      </footer>
+      {{ partial "section/pagination.html" . }}
     </article>
   </main>
 {{ end }}
