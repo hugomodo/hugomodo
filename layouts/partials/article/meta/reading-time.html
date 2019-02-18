@@ -1,4 +1,6 @@
 {{ if and .IsPage .Content }}
-  <dt>Reading time</dt>
-  <dd><time datetime="{{ .ReadingTime }}m">{{ .ReadingTime }} minutes</time></dd>
+  <div>
+    <dt>Reading time</dt>
+    <dd><time datetime="{{ .ReadingTime }}m">{{ .ReadingTime }} minutes</time></dd>
+  </div>
 {{ end }}
