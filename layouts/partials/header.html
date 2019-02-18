@@ -1,6 +1,4 @@
 <header id="hugoModule-siteHeader">
-  <strong id="hugoModule-siteTitle">
-    <a title="{{ .Site.Title }}" href="/">{{ .Site.Title }}</a>
-  </strong>
+  {{ partial "header/title.html" . }}
   {{ partial "header/nav.html" . }}
 </header>

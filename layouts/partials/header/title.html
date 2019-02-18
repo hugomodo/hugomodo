@@ -1,0 +1,11 @@
+{{ if .Site.Params.logo }}
+  <figure id="hugoModule-siteTitle">
+    <a title="{{ .Site.Title }}" href="/">
+      <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }} Logo"/>
+    </a>
+  </figure>
+{{ else }}
+  <strong id="hugoModule-siteTitle">
+    <a title="{{ .Site.Title }}" href="/">{{ .Site.Title }}</a>
+  </strong>
+{{ end }}
