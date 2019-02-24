@@ -3,11 +3,11 @@
   {{- partial "head.html" . -}}
   <body id="hugoModule-body">
     <div id="hugoModule-bodyWrapper">
-      {{- partial "header.html" . -}}
+      {{- block "header" . }}{{- end }}
 
       {{- block "main" . }}{{- end }}
 
-      {{- partial "footer.html" . -}}
+      {{- block "footer" . }}{{- end }}
 
       {{- partial "foot.html" . -}}
     </div>
